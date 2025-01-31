@@ -5,7 +5,7 @@ require('dotenv').config()
 const cors = require('cors')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 5000
 const jwtSecret = process.env.JWT_SECRET;
 const mongoURI = process.env.DB_URI;
 
@@ -34,5 +34,5 @@ app.use('/api/hackathons', hackathonRoutes);
 
 
 app.listen(PORT, ()=>{
-    console.log('server is running')
+    console.log(`Server is running on port ${PORT}`)
 })
